@@ -6,7 +6,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 app.use(cors({
-  origin: 'https://pww.mike.test'
+  origin: 'https://pww.mike.test',
+  credentials: true
 }));
 
 const router = express.Router();

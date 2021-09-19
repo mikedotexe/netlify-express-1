@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
 
-app.post('/new-account', (req, res) => {
+router.post('/new-account', (req, res) => {
   // console.log('req', req);
   console.log('req.body', req.body);
   // console.log('res', res);

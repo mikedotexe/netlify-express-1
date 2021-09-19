@@ -4,6 +4,8 @@ const path = require('path');
 const serverless = require('serverless-http');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors');
+app.use(cors());
 
 const router = express.Router();
 router.get('/', (req, res) => {
@@ -13,6 +15,13 @@ router.get('/', (req, res) => {
 });
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
+
+app.post('/new-account', (req, res) => {
+  // console.log('req', req);
+  console.log('req.body', req.body);
+  // console.log('res', res);
+  res.sendStatus(200);
+})
 
 app.use(bodyParser.json());
 app.use('/.netlify/functions/server', router);  // path must route to lambda
